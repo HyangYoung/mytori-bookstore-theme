@@ -17,10 +17,11 @@ function mbs_register_post_type() {
             'parent_item_colon'     => __( '상위 책:', 'recipe' ),
             'not_found'             => __( '현재 입력한 책이 없습니다.', 'recipe' ),
             'not_found_in_trash'    => __( '휴지통에 책이 없습니다.', 'recipe' ),
-        ],
+            ],
             'public' => true,
+            'menu_position' => 4,
+            'menu_icon' => 'dashicons-book'
             ]);
-    );
 }
 
 add_action( 'init', 'mbs_register_post_type' );
