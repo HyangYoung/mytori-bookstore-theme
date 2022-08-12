@@ -1,7 +1,4 @@
-<div>
-    <a href="<?= get_post_type_archive_link('book') ?>">책 목록</a>
-</div>
-
+<?php get_header() ?>
 
 <ul>
     <?php
@@ -18,3 +15,5 @@
         }
     } ?>
 </ul>
+
+<?php get_footer() ?>
