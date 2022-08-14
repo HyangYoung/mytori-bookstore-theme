@@ -5,6 +5,10 @@ add_action('add_meta_boxes_book', function() {
        include 'meta-box/book-detail.php';
    },'book' );
 
+    add_meta_box('book-cover', '책 표지', function(){
+        include 'meta-box/book-cover.php';
+    },'book' );
+
 //   add_meta_box('book-toc', '목차', function(){
 //       include 'meta-box/book-toc.php';
 //   },'book' );
