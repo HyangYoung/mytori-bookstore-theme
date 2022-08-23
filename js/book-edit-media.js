@@ -9,13 +9,15 @@
 
     function initMediaObject() {
         return wp.media({
+            frame: 'post',
             title: '표지를 선택해 주세요',
             library: {
                 type: 'image'
             },
             button: {
                 text: '넣기'
-            }
+            },
+            state: 'gallery-library',
         });
     }
 
@@ -26,7 +28,7 @@
     }
 
     function bindSelectCover() {
-        media.on('select', function () {
+        media.on('insert', function () {
             var attachment = media.state()
                 .get('selection')
                 .first()
