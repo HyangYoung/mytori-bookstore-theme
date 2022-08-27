@@ -1,5 +1,5 @@
 <?php
-add_filter('manage_book_posts_columns', function ($columns){
+add_filter('manage_book_posts_columns', function ($columns) {
 
 //    array_unshift($columns, '표지');
     $columns = [
@@ -15,21 +15,22 @@ add_filter('manage_book_posts_columns', function ($columns){
     return $columns;
 });
 
-add_action('manage_book_posts_custom_column', function ($column, $post_id){
+add_action('manage_book_posts_custom_column', function ($column, $post_id) {
     switch ($column) {
-        case 'cover';
-        $cover_id = get_post_meta($post_id, 'cover_id', true);
-        if (!$cover_id){
+        case 'cover':
+
+            $cover_id = get_post_meta($post_id, 'cover_id', true);
+            if (!$cover_id) {
+                break;
+            }
+
+            $url = wp_get_attachment_image_url($cover_id);
+            if(!$url) {
+                break;
+            }
+
+            echo "<img src='{$url}'>";
+
             break;
-        }
-
-        $url = wp_get_attachment_image_url($cover_id);
-        if(!$url) {
-            break;
-        }
-
-        echo "<img src='{$url}>";
-
-        break;
     }
-    },10,2);
+},10,2);
